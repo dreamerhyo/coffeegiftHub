@@ -1,0 +1,111 @@
+<!--동영상 콘텐츠-->
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>캡슐</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(244, 255, 205);
+        }
+
+        .txt {
+            font-family: 'Oswald', 'Noto Sans KR';
+            color: rgb(136, 136, 136);
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .imgBlock {
+            margin-top: 25%;
+            margin-bottom: 25%;
+            vertical-align: middle;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .img {
+            border-radius: 20%;
+        }
+
+        button {
+            width: 120px;
+            height: 40px;
+            color: #fff;
+            background: #989898;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px #2e2e2e;
+            transition: 0.3s;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>선물 도착!</h1>
+    </center>
+
+    <video width="50%" height="auto" controls>
+        <source src="video/video_test.mp4" type="video/mp4">
+    </video>
+
+    <div class="txt">
+        input : <span id="readQR"></span>
+    </div>
+
+    <a href="main"><button type="button">돌아가기</button></a>
+</body>
+
+<script>
+    if (!!window.EventSource) {
+        var source = new EventSource('/events');
+
+        source.addEventListener('open', function (e) {
+        }, false);
+
+        source.addEventListener('update', function (e) {
+            var value = 0;
+
+            value = e.data;
+            document.getElementById("readQR").innerHTML = value;
+
+            if (value == 1) {
+                location.href = "QR01";
+            } else if (value == 2) {
+                location.href = "QR02";
+            } else if (value == 3) {
+                location.href = "QR03";
+            } else if (value == 4) {
+                location.href = "QR04";
+            } else if (value == 5) {
+                location.href = "QR05";
+            } else if (value == 6) {
+                location.href = "QR06";
+            } else if (value == 7) {
+                location.href = "QR07";
+            } else if (value == 8) {
+                location.href = "QR08";
+            } else if (value == 9) {
+                location.href = "QR09";
+            }
+        }, false);
+    }
+</script>
+
+</html>
